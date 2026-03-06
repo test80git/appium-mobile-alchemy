@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class GamePage {
+public class GamePage extends BasePage{
     private static final Logger log = LoggerFactory.getLogger(GamePage.class);
 
     private GameField gameField = new GameField();

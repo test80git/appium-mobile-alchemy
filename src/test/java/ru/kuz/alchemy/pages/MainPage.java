@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class MainPage {
+public class MainPage extends BasePage{
     private static final Logger log = LoggerFactory.getLogger(MainPage.class);
 
     private SelenideElement playButton = $(By.xpath("//android.widget.TextView[@text='Play']/.."));
@@ -29,4 +29,5 @@ public class MainPage {
         playButton.click();
         return new GamePage();
     }
+
 }

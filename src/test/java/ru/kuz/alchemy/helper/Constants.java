@@ -10,4 +10,9 @@ public class Constants {
      */
     public static String SCREENSHOT_TO_SAVE_FOLDER = "screenshots/actual/";
 
+    /**
+     * Путь куда сохраняются эталонные скриншоты селенида
+     */
+    public static String EXPECTED_SCREENSHOT_TO_SAVE_FOLDER = "src/test/resources/expectedScreenshots/";
+
 }
