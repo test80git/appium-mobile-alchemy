@@ -38,7 +38,7 @@ public class BaseTest {
         Configuration.timeout = 10000;
 
         // Отключение анимаций
-//        disableAnimationOnEmulator();
+        disableAnimationOnEmulator();
     }
 
     @BeforeEach
@@ -52,11 +52,22 @@ public class BaseTest {
     }
 
     /**
-     * Отключение анимаций на эмуляторе
+     * Отключение анимаций на эмуляторе чтобы не лагало
      */
-//    private static void disableAnimationOnEmulator() {
-//        executeBash("adb shell settings put global transition_animation_scale 0.0");
-//        executeBash("adb shell settings put global window_animation_scale 0.0");
-//        executeBash("adb shell settings put global animator_duration_scale 0.0");
-//    }
+    private static void disableAnimationOnEmulator() {
+        String adbCommand = getAdbCommand();
+        executeBash(adbCommand + " shell settings put global transition_animation_scale 0.0");
+        executeBash(adbCommand + " shell settings put global window_animation_scale 0.0");
+        executeBash(adbCommand + " shell settings put global animator_duration_scale 0.0");
+    }
+
+    private static String getAdbCommand() {
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) {
+            return "adb.exe";  // Windows
+        } else {
+            return "adb";      // Linux/Mac
+        }
+    }
+
 }
